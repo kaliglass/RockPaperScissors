@@ -1,42 +1,70 @@
+let plyrcnt = 0;
+let compcnt = 0;
+
 function getComputerChoice(){
     const pick=['rock','paper','scissors'];
-    return (pick[Math.floor(Math.random() * pick.length)]);
+     return (pick[Math.floor(Math.random() * pick.length)]);
 }
 
 function playRound(playerSelection,computerSelection){
     if(playerSelection==='rock'){
         if(computerSelection==='scissors'){
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+            plyrcnt++;
+             console.log(`You win! ${playerSelection} beats ${computerSelection}`);
         }
         else if(computerSelection==='paper'){
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            compcnt++;
+             console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
         }
         else{
-            return `${playerSelection} and ${computerSelection} is a tie`;
+             console.log(`${playerSelection} and ${computerSelection} is a tie`);
         }
     }
 
     else if(playerSelection==='scissors'){
         if(computerSelection==='rock'){
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            compcnt++;
+            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
         }
         else if(computerSelection==='paper'){
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+            plyrcnt++;
+             console.log(`You win! ${playerSelection} beats ${computerSelection}`);
         }
         else{
-            return `${playerSelection} and ${computerSelection} is a tie`;
+             console.log(`${playerSelection} and ${computerSelection} is a tie`);
         }
     }
 
     else if(playerSelection==='paper'){
         if(computerSelection==='scissors'){
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            compcnt++;
+             console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
         }
         else if(computerSelection==='rock'){
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+            plyrcnt++;
+             console.log(`You win! ${playerSelection} beats ${computerSelection}`);
         }
         else{
-            return `${playerSelection} and ${computerSelection} is a tie`;
+             console.log(`${playerSelection} and ${computerSelection} is a tie`);
         }
     }
 }
+
+function playGame(){
+    for(let i = 0;i<5;i++){
+        playerSelection = prompt("Enter your choice: ").toLowerCase();
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection,computerSelection));
+    }
+    if(plyrcnt>compcnt){
+        console.log(`You win the game with the score of ${plyrcnt}-${compcnt}`);
+    }
+    else if(compcnt>plyrcnt){  
+        console.log(`You took an L,the score is ${plyrcnt}-${compcnt}`);
+    }
+    else{
+        console.log(`It is a tie with the score of ${plyrcnt}-${compcnt}`);
+    }
+}
+
+playGame();
