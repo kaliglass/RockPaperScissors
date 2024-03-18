@@ -55,11 +55,11 @@ function playRound(playerSelection,computerSelection){
     resultsDiv.textContent+=` \nPlayer:${plyrcnt} - Computer:${compcnt}`;
 
     if(plyrcnt>=5){
-        resultsDiv.textContent += " \n Congrats! You win the game!";
+        resultsDiv.textContent += "\n\n Congrats! You win the game!";
     }
 
     else if(compcnt>=5){
-        resultsDiv.textContent += " \n You took an L, better luck next time";
+        resultsDiv.textContent += " \n\n You took an L, better luck next time";
     }
 }
 
